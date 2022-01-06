@@ -32,7 +32,7 @@ class Matcher:
         return np.sum(p[filt] * np.log2(p[filt] / q[filt]))
 
     def match(self, refs, img):
-        best_score = 10
+        best_score = float('inf')
         best_name = None
         lbp = ft.local_binary_pattern(img, self.P, self.R, self.METHOD)
         hist, _ = np.histogram(lbp,  bins=self.P + 2, range=(0, self.P + 2))
