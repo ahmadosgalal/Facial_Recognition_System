@@ -34,9 +34,11 @@ if flag == '1':
             cropped_img, face_loc_img = face_detect.detect_borders(img_curr)
             if cropped_img is None:
                 continue
-            gray_img = cv2.cvtColor(cropped_img, cv2.COLOR_RGB2GRAY)
+            #print(cropped_img)
+            for cropped_img_item in cropped_img:
+                gray_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
 
-            enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
+                enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
 
         weights_array = np.array(enc_list, dtype=object)
 
@@ -72,11 +74,13 @@ elif flag == '2':
         # Detect Faces
         try:
             cropped_test_img, face_loc_test_img = face_detect.detect_borders(frame)
-            gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
-            n, s = classifier.match(weights_array, gray_test_img)
+
             #print("#Main\n", n, s)
             #face_locations, face_names = sfr.detect_known_faces(frame)
-            for face_loc in face_loc_test_img:
+            for cropped_img_item, face_loc in zip(cropped_test_img,face_loc_test_img):
+                gray_test_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
+                n, s = classifier.match(weights_array, gray_test_img)
+
                 y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
 
                 cv2.putText(frame, n+" "+str(s), (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)

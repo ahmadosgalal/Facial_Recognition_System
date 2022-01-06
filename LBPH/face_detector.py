@@ -10,9 +10,11 @@ class FaceDetectorReady:
         resized_img = cv2.resize(img, (0, 0), fx=self.frame_resizing, fy=self.frame_resizing)
         rgb_img = cv2.cvtColor(resized_img, cv2.COLOR_BGR2RGB)
         face_locations = face_recognition.face_locations(rgb_img)
+        final_imgs = []
         for face_loc in face_locations:
             #top, right, bottom, left = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
             y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+            final_imgs.append(resized_img[y1:y2, x1:x2])
             #print(y1, x2, y2, x1)
 
             #cv2.putText(resized_img, "face", (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
@@ -20,7 +22,7 @@ class FaceDetectorReady:
         #cv2.imshow("Frame", resized_img)
         #cv2.imshow("Frame", resized_img[y1:y2, x1:x2])
         try:
-            return resized_img[y1:y2, x1:x2], face_locations
+            return final_imgs, face_locations
         except:
             return None, None
 
