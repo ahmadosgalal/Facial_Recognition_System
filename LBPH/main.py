@@ -63,24 +63,54 @@ if flag == '1':
         except:
             print("Path does not exist")
 elif flag == '2':
-    test_img = cv2.imread("Messi1.webp")
-
+    cap = cv2.VideoCapture(0)
     with open('weights.npy', 'rb') as f:
         weights_array = np.load(f, allow_pickle=True)
-    print(weights_array)
-    cropped_test_img, face_loc_test_img = face_detect.detect_borders(test_img)
-    gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+    while True:
+        ret, frame = cap.read()
 
-    n, s = classifier.match(weights_array, gray_test_img)
-    print("#Main\n", n, s)
+        # Detect Faces
+        try:
+            cropped_test_img, face_loc_test_img = face_detect.detect_borders(frame)
+            gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+            n, s = classifier.match(weights_array, gray_test_img)
+            #print("#Main\n", n, s)
+            #face_locations, face_names = sfr.detect_known_faces(frame)
+            for face_loc in face_loc_test_img:
+                y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
 
-    for face_loc in face_loc_test_img:
-        y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+                cv2.putText(frame, n+" "+str(s), (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
+        except:
+            print("No face detected!")
 
-        cv2.putText(test_img, n, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
-        cv2.rectangle(test_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
+        cv2.imshow("User", frame)
 
-    cv2.imshow(n, test_img)
+        key = cv2.waitKey(1)
+        if key == 27:
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+    #test_img = cv2.imread("Messi1.webp")
+
+    # with open('weights.npy', 'rb') as f:
+    #     weights_array = np.load(f, allow_pickle=True)
+    #print(weights_array)
+    # cropped_test_img, face_loc_test_img = face_detect.detect_borders(test_img)
+    # gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+
+    # n, s = classifier.match(weights_array, gray_test_img)
+    # print("#Main\n", n, s)
+
+    # for face_loc in face_loc_test_img:
+    #     y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+    #
+    #     cv2.putText(test_img, n, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+    #     cv2.rectangle(test_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
+    #
+    # cv2.imshow(n, test_img)
 
 ###################################################
 # img = cv2.imread("images/Messi.webp")

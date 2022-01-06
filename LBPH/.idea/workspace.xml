@@ -19,11 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Image Comparator Pipeline">
+    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Enhancing the pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_local_binary_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_local_binary_pattern.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,7 @@
       <recent name="F:\OneDrive - Cairo University - Students\Uni\Senior-II\Image\Facial_Recognition_System\LBPH" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\OneDrive - Cairo University - Students\Uni\Senior-II\Image\Facial_Recognition_System\LBPH\images" />
       <recent name="F:\OneDrive - Cairo University - Students\Uni\Senior-II\Image\Facial_Recognition_System\LBPH" />
     </key>
   </component>
@@ -176,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641484869890</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Enhancing the pipeline">
+      <created>1641489173320</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641489173320</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,32 +200,33 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial test logic" />
     <MESSAGE value="Image Comparator Pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Image Comparator Pipeline" />
+    <MESSAGE value="Enhancing the pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhancing the pipeline" />
   </component>
   <component name="WindowStateProjectService">
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1641476625196">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641476625196" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641488902688">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641491579787">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641488902688" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641488902688">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641491579787" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641491579787">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641488902688" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641488902688">
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641491579787" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641491579787">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641488902688" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641488902688">
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641491579787" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641491579787">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641488902688" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641484881957">
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641491579787" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641489183808">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641484881957" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641489183808" />
   </component>
 </project>

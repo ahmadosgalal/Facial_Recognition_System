@@ -43,5 +43,5 @@ class Matcher:
             if np.abs(score) < best_score:
                 best_score = np.abs(score)
                 best_name = name
-            print(name, score)
+            #print(name, score)
         return best_name, best_score
