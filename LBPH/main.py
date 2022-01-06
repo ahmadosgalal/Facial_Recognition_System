@@ -1,99 +1,136 @@
 import cv2
 import face_recognition
+import os
 from LBPH import *
 from face_detector import *
 from plot_local_binary_pattern import *
 import skimage.feature as ft
 
-
-# img = cv2.imread("images/img3.jpg")
-# img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-# img2 = cv2.imread("images/img1.png")
-# img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-# img3 = cv2.imread("images/Ryan Reynolds.jpg")
-# img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
-
-# flag = input("Choose '1' for training & '2 for testing: ")
-# if flag == '1':
-#     flag = input("Choose '1' for first time & '2 for adding an image: ")
-#     if flag == '1':
-#         enc_list = []
-#         enc_list.append(("Ant-Man", ft.local_binary_pattern(img, 8, 1, 'uniform')))
-#         enc_list.append(("Natasha", ft.local_binary_pattern(img2, 8, 1, 'uniform')))
-#         weights_array = np.array(enc_list, dtype=object)
-#         with open('weights.npy', 'wb') as f:
-#             np.save(f, weights_array)
+# path = "images"
+# dir_list = os.listdir(path)
 #
-#     elif flag == '2':
-#         with open('weights.npy', 'rb') as f:
-#             weights_array = np.load(f, allow_pickle=True)
-#         enc_list = weights_array.tolist()
-#         enc_list.append(("Ryan", ft.local_binary_pattern(img3, 8, 1, 'uniform')))
-#         weights_array = np.array(enc_list, dtype=object)
-#         with open('weights.npy', 'wb') as f:
-#             np.save(f, weights_array)
-#
-# elif flag == '2':
-#     with open('weights.npy', 'rb') as f:
-#         weights_array = np.load(f, allow_pickle=True)
-#     print(weights_array)
-#     face_detect = FaceDetectorReady()
-#     lbph = LBPReady(8, 1)
-#     classifier = Matcher(8, 1)
-#     n, s = classifier.match(weights_array, img3)
-#     print("#Main\n", n, s)
-
-
-###################################################
-img = cv2.imread("images/Messi.webp")
-#img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-img2 = cv2.imread("images/img1.png")
-#img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-img3 = cv2.imread("images/Ryan Reynolds.jpg")
-#img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
-test_img = cv2.imread("Messi1.webp")
+# for item in dir_list:
+#     img_name = item.split(".")[0]
+#     print(img_name)
 
 face_detect = FaceDetectorReady()
 lbph = LBPReady(8, 1)
 classifier = Matcher(8, 1)
 
-cropped_img, face_loc_img = face_detect.detect_borders(img)
-cropped_img2, face_loc_img2 = face_detect.detect_borders(img2)
-cropped_img3, face_loc_img3 = face_detect.detect_borders(img3)
-cropped_test_img, face_loc_test_img = face_detect.detect_borders(test_img)
+flag = input("Choose '1' for training & '2 for testing: ")
+if flag == '1':
+    flag = input("Choose '1' for first time & '2 for adding an image: ")
+    if flag == '1':
+        path = "images"
+        dir_list = os.listdir(path)
+        enc_list = []
+        img_list = []
 
-gray_img = cv2.cvtColor(cropped_img, cv2.COLOR_RGB2GRAY)
-gray_img2 = cv2.cvtColor(cropped_img2, cv2.COLOR_RGB2GRAY)
-gray_img3 = cv2.cvtColor(cropped_img3, cv2.COLOR_RGB2GRAY)
-gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+        for item in dir_list:
+            img_name = item.split(".")[0]
+            print(img_name)
+            img_curr = cv2.imread(path + "/" + item)
 
-#cv2.imshow("Debug",gray_img3)
+            cropped_img, face_loc_img = face_detect.detect_borders(img_curr)
+            if cropped_img is None:
+                continue
+            gray_img = cv2.cvtColor(cropped_img, cv2.COLOR_RGB2GRAY)
 
-enc_list = []
-enc_list.append(("Messi", ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
-enc_list.append(("Natasha", ft.local_binary_pattern(gray_img2, 8, 1, 'uniform')))
-enc_list.append(("Ryan", ft.local_binary_pattern(gray_img3, 8, 1, 'uniform')))
-weights_array = np.array(enc_list, dtype=object)
+            enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
 
-n, s = classifier.match(weights_array, gray_test_img)
-print("#Main\n", n, s)
+        weights_array = np.array(enc_list, dtype=object)
 
-for face_loc in face_loc_test_img:
-    y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+        with open('weights.npy', 'wb') as f:
+            np.save(f, weights_array)
 
+    elif flag == '2':
+        path = input("Enter image path: ")
+        path_arr = path.split("/")
+        im_name = path_arr[-1].split(".")[0]
+        try:
+            img3 = cv2.imread(path)
+            cropped_img3, face_loc_img3 = face_detect.detect_borders(img3)
 
-    cv2.putText(test_img, n, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
-    cv2.rectangle(test_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
+            gray_img3 = cv2.cvtColor(cropped_img3, cv2.COLOR_RGB2GRAY)
+            with open('weights.npy', 'rb') as f:
+                weights_array = np.load(f, allow_pickle=True)
+            enc_list = weights_array.tolist()
 
-cv2.imshow(n, test_img)
+            enc_list.append((im_name, ft.local_binary_pattern(gray_img3, 8, 1, 'uniform')))
+            weights_array = np.array(enc_list, dtype=object)
+            with open('weights.npy', 'wb') as f:
+                np.save(f, weights_array)
+        except:
+            print("Path does not exist")
+elif flag == '2':
+    test_img = cv2.imread("Messi1.webp")
 
+    with open('weights.npy', 'rb') as f:
+        weights_array = np.load(f, allow_pickle=True)
+    print(weights_array)
+    cropped_test_img, face_loc_test_img = face_detect.detect_borders(test_img)
+    gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+
+    n, s = classifier.match(weights_array, gray_test_img)
+    print("#Main\n", n, s)
+
+    for face_loc in face_loc_test_img:
+        y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+
+        cv2.putText(test_img, n, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+        cv2.rectangle(test_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
+
+    cv2.imshow(n, test_img)
+
+###################################################
+# img = cv2.imread("images/Messi.webp")
+# #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+# img2 = cv2.imread("images/img1.png")
+# #img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
+# img3 = cv2.imread("images/Ryan Reynolds.jpg")
+# #img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
+# test_img = cv2.imread("Messi1.webp")
+
+# face_detect = FaceDetectorReady()
+# lbph = LBPReady(8, 1)
+# classifier = Matcher(8, 1)
+
+# cropped_img, face_loc_img = face_detect.detect_borders(img)
+# cropped_img2, face_loc_img2 = face_detect.detect_borders(img2)
+# cropped_img3, face_loc_img3 = face_detect.detect_borders(img3)
+# cropped_test_img, face_loc_test_img = face_detect.detect_borders(test_img)
+
+# gray_img = cv2.cvtColor(cropped_img, cv2.COLOR_RGB2GRAY)
+# gray_img2 = cv2.cvtColor(cropped_img2, cv2.COLOR_RGB2GRAY)
+# gray_img3 = cv2.cvtColor(cropped_img3, cv2.COLOR_RGB2GRAY)
+# gray_test_img = cv2.cvtColor(cropped_test_img, cv2.COLOR_RGB2GRAY)
+
+# cv2.imshow("Debug",gray_img3)
+
+# enc_list = []
+# enc_list.append(("Messi", ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
+# enc_list.append(("Natasha", ft.local_binary_pattern(gray_img2, 8, 1, 'uniform')))
+# enc_list.append(("Ryan", ft.local_binary_pattern(gray_img3, 8, 1, 'uniform')))
+# weights_array = np.array(enc_list, dtype=object)
+
+# n, s = classifier.match(weights_array, gray_test_img)
+# print("#Main\n", n, s)
+#
+# for face_loc in face_loc_test_img:
+#     y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+#
+#
+#     cv2.putText(test_img, n, (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+#     cv2.rectangle(test_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
+#
+# cv2.imshow(n, test_img)
 
 
 # rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 # Detect face position
-#face_locations = face_detect.detect_borders(img)
-#lbph_hist = lbph.compute(img)
+# face_locations = face_detect.detect_borders(img)
+# lbph_hist = lbph.compute(img)
 
 
 # Use my encodings

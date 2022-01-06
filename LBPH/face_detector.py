@@ -19,7 +19,11 @@ class FaceDetectorReady:
             #cv2.rectangle(resized_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
         #cv2.imshow("Frame", resized_img)
         #cv2.imshow("Frame", resized_img[y1:y2, x1:x2])
-        return resized_img[y1:y2, x1:x2], face_locations
+        try:
+            return resized_img[y1:y2, x1:x2], face_locations
+        except:
+            return None, None
+
 
 
 class FaceDetectorbyHand:
