@@ -1,15 +1,28 @@
-import cv2
 import numpy as np
+import cv2
 import inspect
 import os
 
 faces = []
 identity = []
 
+
+# Haar cascade classifier to detect faces
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+# Load mean vector 
+mean_vec = np.load('Data/vectors/meanVector.npy') 
+
+# Load eigen vectors 
+eig_vec = np.load('Data/vectors/eigenVectors.npy')    
+
+# Load weights
+weights = np.load('Data/vectors/weights.npy')    
+
 # Path to images
 src_file_path = inspect.getfile(lambda: None)
 BASE_DIR = os.path.dirname(os.path.abspath(src_file_path))
-image_dir = os.path.join(BASE_DIR, "LFW_Dataset")
+image_dir = os.path.join(BASE_DIR, "Real-Time")
 
 
 out_path = os.path.realpath("main.py")
@@ -21,8 +34,6 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Navigate through images folder to get all images
 for root, dirs, files in os.walk(image_dir):
-    file_count = len(files)
-    if(file_count > 1):
         # Keep track of count of images for each new face
         img_counter = 1    
 
@@ -34,7 +45,7 @@ for root, dirs, files in os.walk(image_dir):
 
                 img_name = "{}_{}.jpg".format(label, str(img_counter).zfill(4))  
 
-                folder = '/Data/Faces/%s/'%(label)
+                folder = '/Real-Time-Output/Faces/%s/'%(label)
                 destination_root = os.path.dirname(out_path) + folder
 
                                        
@@ -64,7 +75,6 @@ for root, dirs, files in os.walk(image_dir):
                         # Save the image   
                         cv2.imwrite(destination_root + img_name, face_img)                                         
                         
-                        # Flatten image to M*N*1 vector 
                         img = cv2.cvtColor(face_img, cv2.COLOR_BGR2GRAY)   
 
 		                # Append image to vector of images along with the face identity
@@ -79,17 +89,32 @@ for root, dirs, files in os.walk(image_dir):
 facesVector = np.array(faces)
 identityVector = np.array(identity)
 
-np.save('Data/vectors/facesVector', facesVector)                   # Store faces vector
-np.save('Data/vectors/identityVector', identityVector)				# Store identity vector
+
+faces_sample, x_h, x_w = facesVector.shape
+
+# Get weights for X_train
+weights = eig_vec @ (facesVector.reshape(faces_sample, x_h * x_w) - mean_vec).T
+
+
+np.save('Real-Time-Output/Vectors/weights', weights)				    # Store weights for training data
 
 
 
 
-n_samples, h, w = facesVector.shape
-faceshape = (h, w)
+np.save('Real-Time-Output/Vectors/facesVector', facesVector)                   # Store faces vector
+np.save('Real-Time-Output/Vectors/identityVector', identityVector)				# Store identity vector
 
 
-print("Total dataset size:")
-print("n_samples: %d" % n_samples)
-print("Size of each image is {}".format((faceshape)))
+
+
+
+#n_samples, h, w = facesVector.shape
+#faceshape = (h, w)
+
+
+#print("Total dataset size:")
+#print("n_samples: %d" % n_samples)
+#print("Size of each image is {}".format((faceshape)))
+
+
 

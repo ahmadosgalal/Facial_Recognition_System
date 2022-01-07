@@ -3,7 +3,7 @@ from sklearn.decomposition import PCA
 import cv2
 
 # Load faces vector
-faces = np.load('real-time/vectors/facesVector.npy')                   
+faces = np.load('Data/vectors/facesVector.npy')                   
 
 
 n_samples, h, w = faces.shape
@@ -45,13 +45,13 @@ eigenFaces = pca.components_.reshape((numberOfEigenfaces, h, w))
 
 
 
-np.save('real-time/vectors/meanVector', meanVector)                 # Storing meanVector 
+np.save('Data/vectors/meanVector', meanVector)                 # Storing meanVector 
 
-np.save('real-time/vectors/eigenVectors', eigenVectors)				# Storing eigenVectors 
+np.save('Data/vectors/eigenVectors', eigenVectors)				# Storing eigenVectors 
 
-np.save('real-time/vectors/eigenValues', eigenValues)				# Storing eigenValues 
+np.save('Data/vectors/eigenValues', eigenValues)				# Storing eigenValues 
 
-np.save('real-time/vectors/eigenFaces', eigenFaces)				    # Storing eigenFaces 
+np.save('Data/vectors/eigenFaces', eigenFaces)				    # Storing eigenFaces 
 
-np.save('real-time/vectors/dataProjected', X_reduced)				# Storing dataProjected 
+np.save('Data/vectors/dataProjected', X_reduced)				# Storing dataProjected 
 

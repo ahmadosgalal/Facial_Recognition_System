@@ -12,7 +12,7 @@ def detect(facename):
     # Set path
     in_path = os.path.realpath("detect.py")
 
-    folder = '/real-time/Faces/%s/'%(facename)
+    folder = '/Data/Faces/%s/'%(facename)
     root = os.path.dirname(in_path) + folder 
 
     pattern = "*.jpg"

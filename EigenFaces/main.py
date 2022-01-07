@@ -6,19 +6,19 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Load mean vector 
-mean_vec = np.load('real-time/vectors/meanVector.npy') 
+mean_vec = np.load('Data/vectors/meanVector.npy') 
 
 # Load eigen vectors 
-eig_vec = np.load('real-time/vectors/eigenVectors.npy')    
+eig_vec = np.load('Data/vectors/eigenVectors.npy')    
 
 # Load weights
-weights = np.load('real-time/vectors/weights.npy')    
+weights = np.load('Data/vectors/weights.npy')    
 
 # Load X_train
-X_train = np.load('real-time/vectors/X_train.npy')                   
+X_train = np.load('Data/vectors/X_train.npy')                   
 
 # Load y_train
-y_train = np.load('real-time/vectors/y_train.npy') 
+y_train = np.load('Data/vectors/y_train.npy') 
 
 print(y_train)
 
@@ -29,7 +29,7 @@ print(faceshape)
 
 
 # Test on out-of-sample image of existing class
-image = cv2.imread("abdullah_Gul.jpg")
+image = cv2.imread("ali_naimi.jpg")
 
 # Convert image to grayscale
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)         

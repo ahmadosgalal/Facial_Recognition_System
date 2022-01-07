@@ -6,7 +6,7 @@ import plot
 
 
 # Load data projected 
-X_proj = np.load('real-time/vectors/dataProjected.npy') 
+X_proj = np.load('Data/vectors/dataProjected.npy') 
 
 
 

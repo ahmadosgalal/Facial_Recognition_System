@@ -7,7 +7,7 @@ faces = []
 identity = []
 
 peopleCount = 0
-N = 200
+N = 10
 
 # Path to images
 src_file_path = inspect.getfile(lambda: None)
@@ -38,7 +38,7 @@ while(peopleCount <= N):
 
                     img_name = "{}_{}.jpg".format(label, str(img_counter).zfill(4))  
 
-                    folder = '/real-time/Faces/%s/'%(label)
+                    folder = '/Data/Faces/%s/'%(label)
                     destination_root = os.path.dirname(out_path) + folder
 
                                             
@@ -86,8 +86,8 @@ X = np.array(faces)
 y = np.array(identity)
 
 
-np.save('real-time/vectors/X', X)               # Store X faces
-np.save('real-time/vectors/y', y)				# Store y labels
+np.save('Data/vectors/X', X)               # Store X faces
+np.save('Data/vectors/y', y)				# Store y labels
 
 
 

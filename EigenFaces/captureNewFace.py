@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load mean vector 
-mean_vec = np.load('real-time/vectors/meanVector.npy') 
+mean_vec = np.load('Data/vectors/meanVector.npy') 
 
 # Load eigen vectors 
-eig_vec = np.load('real-time/vectors/eigenVectors.npy')    
+eig_vec = np.load('Data/vectors/eigenVectors.npy')    
 
 # Load weights
-weights = np.load('real-time/vectors/weights.npy')    
+weights = np.load('Data/vectors/weights.npy')    
 
 
 
@@ -50,7 +50,7 @@ def capture(name):
             img_name = "{}_{}.jpg".format(name, str(img_counter).zfill(4))  
 
             in_path = os.path.realpath("main.py")
-            folder = '/real-time/Faces/%s/'%(name)
+            folder = '/Real-Time/%s/'%(name)
             root = os.path.dirname(in_path) + folder
 
             # Make folder for the new face
@@ -85,31 +85,7 @@ detectFace.detect(facename)
 # Set path
 in_path = os.path.realpath("newFace.py")
 
-folder = '/real-time/Faces/%s/'%(facename)
+folder = '/Real-Time-Output/Faces/%s/'%(facename)
 root = os.path.dirname(in_path) + folder 
 pattern = "*.jpg"
 
-
-# For all images in the 'facename' directory 
-for path, subdirs, files in os.walk(root):  
-    for name in files:
-        if fnmatch(name, pattern):
-            img_root = root + name
-            img = cv2.imread(img_root)
-            # Convert image to grayscale
-            gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)         
-                
-
-            # Visualize
-            fig, axes = plt.subplots(1,1,sharex=True,sharey=True,figsize=(8,6))
-            axes.imshow(gray_image, cmap="gray")
-            plt.show()
-
-            gray_image = gray_image.reshape(1,-1)
-
-
-            gray_image_weight = eig_vec @ (gray_image - mean_vec).T
-            euclidean_distance = np.linalg.norm(weights - gray_image_weight, axis=0)
-            best_match = np.argmin(euclidean_distance)
-            top_match = np.argsort(euclidean_distance)[:7]
-            print(best_match)

@@ -13,16 +13,16 @@ def plot_portraits(images, titles, h, w, n_row, n_col):
 
 
 # Load eigen faces 
-eigenFaces = np.load('real-time/vectors/eigenFaces.npy') 
+eigenFaces = np.load('Data/vectors/eigenFaces.npy') 
 
  # Load faces vector
-faces = np.load('real-time/vectors/facesVector.npy')                   
+faces = np.load('Data/vectors/facesVector.npy')                   
 
 # Load identity vector 
-identity = np.load('real-time/vectors/identityVector.npy') 
+identity = np.load('Data/vectors/identityVector.npy') 
 
 # Load mean vector 
-mean_vec = np.load('real-time/vectors/meanVector.npy') 
+mean_vec = np.load('Data/vectors/meanVector.npy') 
 
 
 n_samples, h, w = faces.shape
