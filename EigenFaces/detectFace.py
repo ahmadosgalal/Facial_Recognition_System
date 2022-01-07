@@ -1,21 +1,20 @@
-import cv2 
-import time
+import cv2
 import os
 from fnmatch import fnmatch
 
-# Detect face in an image 
-def getface(facename):    
 
-    # Haar cascade classifier to detect faces
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
+# Haar cascade classifier to detect faces
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+
+def detect(facename):
 
     # Set path
-    in_path = os.path.realpath("getface.py")
+    in_path = os.path.realpath("detect.py")
 
     folder = '/real-time/Faces/%s/'%(facename)
     root = os.path.dirname(in_path) + folder 
 
-    images_path = []
     pattern = "*.jpg"
 
     # For all images in the 'facename' directory 
@@ -31,19 +30,21 @@ def getface(facename):
                 # Detect faces
                 faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5) 
 
-                # If there was faces detected in image
+                # If there were faces detected in image
                 if(len(faces) != 0):
                     # For each detected face
                     for (x, y, w, h) in faces:
 
-                        #Crop face image
+                        # Crop face image
                         face_img = img[y+5:y+h-5, x+5:x+w-5]            
                     
-                        #Resize to make uniform images
-                        face_img = cv2.resize(face_img,(32, 32))         
+                        # Resize to make uniform images
+                        face_img = cv2.resize(face_img,(62, 47))         
 
-                        #Save the image back
+                        # Save the image back
                         cv2.imwrite(img_root, face_img) 
 
                 else:
                     os.remove(img_root)                
+
+
