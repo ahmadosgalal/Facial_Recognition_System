@@ -65,19 +65,16 @@ class LBPHfromScratch:
         self.R = 1
         self.P = 8
         self.filter_size = 3
-        # self.theta = 2 * np.pi / self.P
-        # self.theta_arr = np.arange(0, 2 * np.pi, self.theta)
+        # Anti-clockwise (right -> up + right -> up -> up + left -> left -> down + left -> down -> down + right)
+        self.filter_lbp = np.array([[2, 1], [2, 0], [1, 0], [0, 0], [0, 1], [0, 2], [1, 2], [2, 2]])
+        # self.filter_lbp = np.array([[2, 1], [2, 2], [1, 2], [0, 2], [0, 1], [0, 0], [1, 0], [2, 0]])
 
     def Compute_LBP(self, img):
-        # print(self.theta_arr)
-
         # Determine the dimensions of the input image.
         height = img.shape[0]
         width = img.shape[1]
 
         print(height, width, "##")
-
-        filter_lbp = np.array([[2, 1], [2, 0], [1, 0], [0, 0], [0, 1], [0, 2], [1, 2], [2, 2]])
 
         # Minimum allowed size for the input image depends on the radius of the used LBP operator.
         if width < self.filter_size or height < self.filter_size:
@@ -85,24 +82,30 @@ class LBPHfromScratch:
 
         out_width = width - self.filter_size + 1
         out_height = height - self.filter_size + 1
+
         print("##", out_width, out_height)
+
         # Fill the center pixel matrix C.
         C = img[1:1 + out_height, 1:1 + out_width]
+
         print("C.shape", C.shape)
+
         # Initialize the result matrix with zeros.
         out_img = np.zeros((out_height, out_width), dtype=np.float32)
-        # print("s_points.shape[0]", s_points.shape[0])
+
         for i in range(0, 8):
-            # Get coordinate in the block:
+
             print("i", i)
 
-            rx = filter_lbp[i][0]
-            ry = filter_lbp[i][1]
+            rx = self.filter_lbp[i][0]
+            ry = self.filter_lbp[i][1]
 
             print("rx, ry:", rx, ry)
 
             N = img[ry:ry + out_height, rx:rx + out_width]
+
             print("N.shape:", N.shape)
+
             D = (N >= C).astype(np.uint8)
 
             # Update the result matrix.

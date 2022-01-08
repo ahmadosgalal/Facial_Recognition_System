@@ -19,16 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Fixing a bug in pipeline">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LBPH.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LBPH.iml" afterDir="false" />
+    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Fixing bugs in LBPH">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LBPH.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBPH.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_local_binary_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_local_binary_pattern.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641495193069</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixing bugs in LBPH">
+      <created>1641646926756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641646926757</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +248,8 @@
     <MESSAGE value="Enhancing the pipeline" />
     <MESSAGE value="Pipeline integration with camera" />
     <MESSAGE value="Fixing a bug in pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing a bug in pipeline" />
+    <MESSAGE value="Fixing bugs in LBPH" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing bugs in LBPH" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="87" key="#Inspections" timestamp="1641646509951">
@@ -259,30 +260,30 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641476625196" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641646819203">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641651686850">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641646819203" />
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641651686850" />
     <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641646819202">
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641651686850">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641646819202" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641651686850" />
     <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641646819202">
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641651686849">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641646819202" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641651686849" />
     <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641646819202">
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641651686850">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641646819202" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641651686850" />
     <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641495197589">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641646934083">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641492149414" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641646934083" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1641495197589" />
   </component>
 </project>
