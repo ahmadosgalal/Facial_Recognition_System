@@ -64,7 +64,7 @@ while(peopleCount <= N):
                             # Crop face image
                             face_img = image[y+5:y+h-5, x+5:x+w-5]             
                             # Resize to make uniform images
-                            face_img = cv2.resize(face_img, (47, 62))          
+                            face_img = cv2.resize(face_img, (16, 16))          
                             # Save the image   
                             cv2.imwrite(destination_root + img_name, face_img)                                         
                             

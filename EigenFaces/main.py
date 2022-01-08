@@ -44,7 +44,7 @@ if(len(faces) != 0):
         # Crop face image
         face_img = gray_image[y+5:y+h-5, x+5:x+w-5]             
         # Resize to make uniform images
-        face_img = cv2.resize(face_img, (47, 62))          
+        face_img = cv2.resize(face_img, (16, 16))          
         # Save the image   
         image = face_img
 

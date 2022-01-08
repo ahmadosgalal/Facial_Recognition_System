@@ -7,7 +7,7 @@ import os
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Load mean vector 
-mean_vec = np.load('Data/vectors/meanVector.npy') 
+mean_vec = np.load('Real-Time-Output/vectors/meanVector.npy') 
 
 # Load eigen vectors 
 eig_vec = np.load('Data/vectors/eigenVectors.npy')    
@@ -39,21 +39,24 @@ while(True):
         # Crop face image
         face_img = gray[y+5:y+h-5, x+5:x+w-5]             
         # Resize to make uniform images
-        face_img = cv2.resize(face_img, (47, 62))
+        face_img = cv2.resize(face_img, (16, 16))
 
         inputFace = face_img.reshape(1,-1)
         inputFace_weight = eig_vec @ (inputFace - mean_vec).T
         euclidean_distance = np.linalg.norm(weights - inputFace_weight, axis=0)
         best_match = np.argmin(euclidean_distance)
+        #print(facesIdentity[best_match])
 
-        if min(euclidean_distance) < 3000:
-            print(euclidean_distance)
+        if min(euclidean_distance) < 2000:
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = facesIdentity[best_match]
-            color = (255, 255, 255)
+            color = (255, 0, 0)
             stroke = 2
             cv2.putText(frame, name, (x,y), font, 1, color, stroke, cv2.LINE_AA)
-            
+            print("Face recognized: ", name, min(euclidean_distance))
+
+        else:
+            print("Face not recognized")
 
         color = (255, 0, 0) #BGR 0-255 
         stroke = 2

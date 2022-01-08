@@ -6,6 +6,8 @@ import os
 faces = []
 identity = []
 
+totalImagesCount = 0 
+
 # Path to images
 src_file_path = inspect.getfile(lambda: None)
 BASE_DIR = os.path.dirname(os.path.abspath(src_file_path))
@@ -60,7 +62,7 @@ for root, dirs, files in os.walk(image_dir):
                         # Crop face image
                         face_img = image[y+5:y+h-5, x+5:x+w-5]             
                         # Resize to make uniform images
-                        face_img = cv2.resize(face_img, (47, 62))          
+                        face_img = cv2.resize(face_img, (16, 16))          
                         # Save the image   
                         cv2.imwrite(destination_root + img_name, face_img)                                         
                         
@@ -73,6 +75,10 @@ for root, dirs, files in os.walk(image_dir):
 
                 # Increment image counter
                 img_counter += 1
+                #totalImagesCount += 1
+    #if(totalImagesCount > 200):
+    #    break
+
 
 
 
