@@ -33,11 +33,13 @@ if flag == '1':
             for cropped_img_item in cropped_img:
                 gray_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
                 temp_img = lbph_2.Compute_LBP(gray_img)
+                ref_hist = cv2.calcHist([temp_img], [0], None, [256], [0, 256])
+                ref_hist /= ref_hist.sum()
                 # enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
                 # cv2.imshow(img_name, lbph_2.Compute_LBP(gray_img))
                 # Saving the image
                 cv2.imwrite("mine/" + img_name + ".jpg", temp_img)
-                enc_list.append((img_name, temp_img))
+                enc_list.append((img_name, ref_hist))
 
         weights_array = np.array(enc_list, dtype=object)
 
@@ -58,7 +60,9 @@ if flag == '1':
             # print(cropped_img3)
             for cropped_img_item in cropped_img3:
                 gray_img3 = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
-                enc_list.append((im_name, lbph_2.Compute_LBP(gray_img3)))
+                ref_hist = cv2.calcHist([gray_img3], [0], None, [256], [0, 256])
+                ref_hist /= ref_hist.sum()
+                enc_list.append((im_name, ref_hist))
 
             # enc_list.append((im_name, ft.local_binary_pattern(gray_img3, 8, 1, 'uniform')))
 

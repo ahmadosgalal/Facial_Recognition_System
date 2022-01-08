@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Remove unwanted files">
+    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="CHI-Square classifier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LBPH.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBPH.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/histogram_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/histogram_comparison.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -250,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641653551627</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="CHI-Square classifier">
+      <created>1641660632763</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641660632764</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,7 +281,8 @@
     <MESSAGE value="Stable LBPH" />
     <MESSAGE value="Refactor LBPH" />
     <MESSAGE value="Remove unwanted files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unwanted files" />
+    <MESSAGE value="CHI-Square classifier" />
+    <option name="LAST_COMMIT_MESSAGE" value="CHI-Square classifier" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="87" key="#Inspections" timestamp="1641646509951">
@@ -286,30 +293,30 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641476625196" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641660096038">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641661261724">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660096038" />
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261724" />
     <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641660096038">
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641661261722">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660096038" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261722" />
     <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641660096037">
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641661261721">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660096037" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261721" />
     <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641660096038">
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641661261723">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660096038" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261723" />
     <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641653562133">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641660637644">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641653562133" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660637644" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1641495197589" />
   </component>
 </project>
