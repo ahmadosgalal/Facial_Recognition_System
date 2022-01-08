@@ -109,7 +109,7 @@ class LBPHfromScratch:
             exponent = np.power(2, i)
             out_img = out_img + (flags * exponent)
 
-        return out_img
+        return out_img.astype(np.uint8)
 
 
 class LBPbyHand:

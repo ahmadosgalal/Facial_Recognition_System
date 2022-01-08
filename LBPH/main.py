@@ -10,7 +10,7 @@ face_detect = FaceDetectorReady()
 lbph = LBPReady(8, 1)
 # lbph_2 = LBPbyHand(8, 1)
 lbph_2 = LBPHfromScratch()
-classifier = Matcher(8, 1)
+classifier = Matcher()
 
 flag = input("Choose '1' for training & '2 for testing: ")
 if flag == '1':

@@ -12,29 +12,22 @@ from LBPH import *
 
 
 class Matcher:
-    def __init__(self, p=8, r=1):
-        # settings for LBP
-        self.METHOD = 'uniform'
-        self.P = p
-        self.R = r
+    def __init__(self):
         self.n_bins = 256
-
-    def kullback_leibler_divergence(self, p, q):
-        p = np.asarray(p)
-        q = np.asarray(q)
-        filt = np.logical_and(p != 0, q != 0)
-        return np.sum(p[filt] * np.log2(p[filt] / q[filt]))
 
     def match(self, refs, lbp):
         best_score = float('inf')
         best_name = None
+        hist = cv2.calcHist([lbp], [0], None, [256], [0, 256])
+        hist /= hist.sum()
 
-        hist, _ = np.histogram(lbp, density=True, bins=self.n_bins)
         for name, ref in refs:
-            ref_hist, _ = np.histogram(ref, density=True, bins=self.n_bins)
-            score = self.kullback_leibler_divergence(hist, ref_hist)
-            if np.abs(score) < best_score:
-                best_score = np.abs(score)
+            ref_hist = cv2.calcHist([ref], [0], None, [256], [0, 256])
+            ref_hist /= ref_hist.sum()
+
+            score = cv2.compareHist(hist, ref_hist, cv2.HISTCMP_CHISQR)
+            if score < best_score:
+                best_score = score
                 best_name = name
-            # print(name, score)
+        best_score = best_score * 100
         return best_name, best_score
