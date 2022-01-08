@@ -16,30 +16,34 @@ flag = input("Choose '1' for training & '2 for testing: ")
 if flag == '1':
     flag = input("Choose '1' for first time & '2 for adding an image: ")
     if flag == '1':
-        path = "images"
-        dir_list = os.listdir(path)
         enc_list = []
         img_list = []
+        # path = "images"
+        # dir_list = os.listdir(path)
+        path = 'images'
 
-        for item in dir_list:
-            img_name = item.split(".")[0]
-            print(img_name)
-            img_curr = cv2.imread(path + "/" + item)
-
-            cropped_img, face_loc_img = face_detect.detect_borders(img_curr)
-            if cropped_img is None:
-                continue
-            # print(cropped_img)
-            for cropped_img_item in cropped_img:
-                gray_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
-                temp_img = lbph_2.Compute_LBP(gray_img)
-                ref_hist = cv2.calcHist([temp_img], [0], None, [256], [0, 256])
-                ref_hist /= ref_hist.sum()
-                # enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
-                # cv2.imshow(img_name, lbph_2.Compute_LBP(gray_img))
-                # Saving the image
-                cv2.imwrite("mine/" + img_name + ".jpg", temp_img)
-                enc_list.append((img_name, ref_hist))
+        directory_contents = os.listdir(path)
+        print(directory_contents)
+        for directory in directory_contents:
+            image_names = os.listdir(path + "/" + directory)
+            for item in image_names:
+                img_name = directory
+                print(img_name)
+                img_curr = cv2.imread(path + "/" + directory + "/" + item)
+                cropped_img, face_loc_img = face_detect.detect_borders(img_curr)
+                if cropped_img is None:
+                    continue
+                # print(cropped_img)
+                for cropped_img_item in cropped_img:
+                    gray_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
+                    temp_img = lbph_2.Compute_LBP(gray_img)
+                    ref_hist = cv2.calcHist([temp_img], [0], None, [256], [0, 256])
+                    ref_hist /= ref_hist.sum()
+                    # enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
+                    # cv2.imshow(img_name, lbph_2.Compute_LBP(gray_img))
+                    # Saving the image
+                    cv2.imwrite("mine/" + img_name + ".jpg", temp_img)
+                    enc_list.append((img_name, ref_hist))
 
         weights_array = np.array(enc_list, dtype=object)
 

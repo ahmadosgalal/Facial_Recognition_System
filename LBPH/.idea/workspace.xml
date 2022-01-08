@@ -19,9 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="CHI-Square classifier">
+    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Optimize testing time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/histogram_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/histogram_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messi1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Elon Musk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Jeff Bezoz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Messi.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Ryan Reynolds.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Sergio Canu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/img6.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641660632764</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Optimize testing time">
+      <created>1641661533279</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641661533279</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,7 +303,8 @@
     <MESSAGE value="Refactor LBPH" />
     <MESSAGE value="Remove unwanted files" />
     <MESSAGE value="CHI-Square classifier" />
-    <option name="LAST_COMMIT_MESSAGE" value="CHI-Square classifier" />
+    <MESSAGE value="Optimize testing time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize testing time" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="87" key="#Inspections" timestamp="1641646509951">
@@ -293,30 +315,30 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641476625196" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641661261724">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641662629202">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261724" />
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641662629202" />
     <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641661261722">
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641662629201">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261722" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641662629201" />
     <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641661261721">
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641662629201">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261721" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641662629201" />
     <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641661261723">
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641662629202">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661261723" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641662629202" />
     <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641660637644">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641661537756">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641660637644" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641661537756" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1641495197589" />
   </component>
 </project>
