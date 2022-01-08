@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import scipy.ndimage as nd
 import skimage.feature as ft
 from skimage import data
+from LBPH import *
 
 
 class Matcher:
@@ -23,6 +24,7 @@ class Matcher:
         self.METHOD = 'uniform'
         self.P = p
         self.R = r
+        self.lbph_2 = LBPbyHand(8, 1)
         #self.matplotlib.rcParams['font.size'] = 9
 
     def kullback_leibler_divergence(self, p, q):
@@ -31,14 +33,15 @@ class Matcher:
         filt = np.logical_and(p != 0, q != 0)
         return np.sum(p[filt] * np.log2(p[filt] / q[filt]))
 
-    def match(self, refs, img):
+    def match(self, refs, lbp):
         best_score = float('inf')
         best_name = None
-        lbp = ft.local_binary_pattern(img, self.P, self.R, self.METHOD)
-        hist, _ = np.histogram(lbp,  bins=self.P + 2, range=(0, self.P + 2))
+        #lbp = ft.local_binary_pattern(img, self.P, self.R, self.METHOD)
+        #lbp = self.lbph_2.Compute_LBP(img)
+        n_bins = 256
+        hist, _ = np.histogram(lbp, density=True, bins=n_bins)
         for name, ref in refs:
-            ref_hist, _ = np.histogram(ref,  bins=self.P + 2,
-                                       range=(0, self.P + 2))
+            ref_hist, _ = np.histogram(ref,  density=True, bins=n_bins)
             score = self.kullback_leibler_divergence(hist, ref_hist)
             if np.abs(score) < best_score:
                 best_score = np.abs(score)
