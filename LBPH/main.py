@@ -7,7 +7,7 @@ from histogram_comparison import *
 import skimage.feature as ft
 
 face_detect = FaceDetectorReady()
-lbph = LBPReady(8, 1)
+# lbph = LBPReady(8, 1)
 # lbph_2 = LBPbyHand(8, 1)
 lbph_2 = LBPHfromScratch()
 classifier = Matcher()
@@ -18,29 +18,24 @@ if flag == '1':
     if flag == '1':
         enc_list = []
         img_list = []
-        # path = "images"
-        # dir_list = os.listdir(path)
+
         path = 'images'
 
         directory_contents = os.listdir(path)
-        print(directory_contents)
         for directory in directory_contents:
             image_names = os.listdir(path + "/" + directory)
             for item in image_names:
                 img_name = directory
-                print(img_name)
                 img_curr = cv2.imread(path + "/" + directory + "/" + item)
                 cropped_img, face_loc_img = face_detect.detect_borders(img_curr)
                 if cropped_img is None:
                     continue
-                # print(cropped_img)
                 for cropped_img_item in cropped_img:
                     gray_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
                     temp_img = lbph_2.Compute_LBP(gray_img)
                     ref_hist = cv2.calcHist([temp_img], [0], None, [256], [0, 256])
                     ref_hist /= ref_hist.sum()
-                    # enc_list.append((img_name, ft.local_binary_pattern(gray_img, 8, 1, 'uniform')))
-                    # cv2.imshow(img_name, lbph_2.Compute_LBP(gray_img))
+
                     # Saving the image
                     cv2.imwrite("mine/" + img_name + ".jpg", temp_img)
                     enc_list.append((img_name, ref_hist))
@@ -61,14 +56,12 @@ if flag == '1':
 
             img3 = cv2.imread(path)
             cropped_img3, face_loc_img3 = face_detect.detect_borders(img3)
-            # print(cropped_img3)
             for cropped_img_item in cropped_img3:
                 gray_img3 = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
                 ref_hist = cv2.calcHist([gray_img3], [0], None, [256], [0, 256])
                 ref_hist /= ref_hist.sum()
                 enc_list.append((im_name, ref_hist))
 
-            # enc_list.append((im_name, ft.local_binary_pattern(gray_img3, 8, 1, 'uniform')))
 
             weights_array = np.array(enc_list, dtype=object)
             with open('weights.npy', 'wb') as f:
@@ -86,8 +79,6 @@ elif flag == '2':
         try:
             cropped_test_img, face_loc_test_img = face_detect.detect_borders(frame)
 
-            # print("#Main\n", n, s)
-            # face_locations, face_names = sfr.detect_known_faces(frame)
             for cropped_img_item, face_loc in zip(cropped_test_img, face_loc_test_img):
                 gray_test_img = cv2.cvtColor(cropped_img_item, cv2.COLOR_RGB2GRAY)
                 lbp_img = lbph_2.Compute_LBP(gray_test_img)
