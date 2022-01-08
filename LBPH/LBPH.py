@@ -85,32 +85,29 @@ class LBPHfromScratch:
 
         print("##", out_width, out_height)
 
-        # Fill the center pixel matrix C.
-        C = img[1:1 + out_height, 1:1 + out_width]
+        reference_matrix = img[1:1 + out_height, 1:1 + out_width]
 
-        print("C.shape", C.shape)
+        print("C.shape", reference_matrix.shape)
 
-        # Initialize the result matrix with zeros.
         out_img = np.zeros((out_height, out_width))
 
         for i in range(0, 8):
 
             print("i", i)
 
-            rx = self.filter_lbp[i][0]
-            ry = self.filter_lbp[i][1]
+            step_x, step_y = self.filter_lbp[i]
 
-            print("rx, ry:", rx, ry)
+            print("rx, ry:", step_x, step_y)
 
-            N = img[ry:ry + out_height, rx:rx + out_width]
+            sliding_matrix = img[step_y:step_y + out_height, step_x:step_x + out_width]
 
-            print("N.shape:", N.shape)
+            print("N.shape:", sliding_matrix.shape)
 
-            D = (N >= C)
+            # flags = (sliding_matrix >= reference_matrix)
+            flags = np.greater_equal(sliding_matrix, reference_matrix)
 
-            # Update the result matrix.
-            v = 2 ** i
-            out_img += D * v
+            exponent = np.power(2, i)
+            out_img = out_img + (flags * exponent)
 
         return out_img
 

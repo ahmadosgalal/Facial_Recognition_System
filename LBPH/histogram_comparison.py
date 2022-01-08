@@ -8,13 +8,6 @@ Binary Pattern). The histogram of the LBP result is a good measure to classify
 textures. For simplicity the histogram distributions are then tested against
 each other using the Kullback-Leibler-Divergence.
 """
-
-import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
-import scipy.ndimage as nd
-import skimage.feature as ft
-from skimage import data
 from LBPH import *
 
 
