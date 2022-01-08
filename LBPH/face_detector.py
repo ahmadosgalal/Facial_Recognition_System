@@ -12,20 +12,14 @@ class FaceDetectorReady:
         face_locations = face_recognition.face_locations(rgb_img)
         final_imgs = []
         for face_loc in face_locations:
-            #top, right, bottom, left = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
+            # top, right, bottom, left = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
             y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
             final_imgs.append(resized_img[y1:y2, x1:x2])
-            #print(y1, x2, y2, x1)
 
-            #cv2.putText(resized_img, "face", (x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
-            #cv2.rectangle(resized_img, (x1, y1), (x2, y2), (0, 0, 200), 4)
-        #cv2.imshow("Frame", resized_img)
-        #cv2.imshow("Frame", resized_img[y1:y2, x1:x2])
         try:
             return final_imgs, face_locations
         except:
             return None, None
-
 
 
 class FaceDetectorbyHand:

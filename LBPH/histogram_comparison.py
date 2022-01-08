@@ -24,8 +24,7 @@ class Matcher:
         self.METHOD = 'uniform'
         self.P = p
         self.R = r
-        self.lbph_2 = LBPbyHand(8, 1)
-        #self.matplotlib.rcParams['font.size'] = 9
+        self.n_bins = 256
 
     def kullback_leibler_divergence(self, p, q):
         p = np.asarray(p)
@@ -36,15 +35,13 @@ class Matcher:
     def match(self, refs, lbp):
         best_score = float('inf')
         best_name = None
-        #lbp = ft.local_binary_pattern(img, self.P, self.R, self.METHOD)
-        #lbp = self.lbph_2.Compute_LBP(img)
-        n_bins = 256
-        hist, _ = np.histogram(lbp, density=True, bins=n_bins)
+
+        hist, _ = np.histogram(lbp, density=True, bins=self.n_bins)
         for name, ref in refs:
-            ref_hist, _ = np.histogram(ref,  density=True, bins=n_bins)
+            ref_hist, _ = np.histogram(ref, density=True, bins=self.n_bins)
             score = self.kullback_leibler_divergence(hist, ref_hist)
             if np.abs(score) < best_score:
                 best_score = np.abs(score)
                 best_name = name
-            #print(name, score)
+            # print(name, score)
         return best_name, best_score

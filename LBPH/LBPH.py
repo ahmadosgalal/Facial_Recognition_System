@@ -91,7 +91,7 @@ class LBPHfromScratch:
         print("C.shape", C.shape)
 
         # Initialize the result matrix with zeros.
-        out_img = np.zeros((out_height, out_width), dtype=np.float32)
+        out_img = np.zeros((out_height, out_width))
 
         for i in range(0, 8):
 
@@ -106,13 +106,13 @@ class LBPHfromScratch:
 
             print("N.shape:", N.shape)
 
-            D = (N >= C).astype(np.uint8)
+            D = (N >= C)
 
             # Update the result matrix.
             v = 2 ** i
             out_img += D * v
 
-        return out_img.astype(np.uint8)
+        return out_img
 
 
 class LBPbyHand:
