@@ -1,0 +1,9 @@
+lfw/
+lfw_home/
+__pycache__/
+images/
+mine/
+output/
+.idea/
+venv/
+weights.npy
