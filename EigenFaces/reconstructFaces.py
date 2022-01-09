@@ -21,4 +21,4 @@ X_proj_img = np.reshape(X_inv_proj, (n_samples, h, w))
 
 # Show first 50 reconstructed faces
 face_titles = ["Face %d" % i for i in range(X_proj_img.shape[0])]
-plot.plot_portraits(X_proj_img, face_titles, X_proj_img.shape[2], X_proj_img.shape[1], 5, 10) 
+plot.plot_portraits(X_proj_img, face_titles, X_proj_img.shape[2], X_proj_img.shape[1], 10, 10) 

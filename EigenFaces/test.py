@@ -71,23 +71,23 @@ for i in range(n_samples):
 
     if(y_test[i] == y_train[best_match]):
         accuracy += 1
-    #print(testImage_weight.shape, euclidean_distance.shape)
+
     #print(best_match)
 
     #print(top_match)
     print("Person: " , y_test[i])
     print("Best match %s with Euclidean distance %f" % (y_train[best_match], euclidean_distance[best_match]))
 
-    print("Second best match %s with Euclidean distance %f" % (y_train[top_match[1]], euclidean_distance[top_match[1]]))
-    print("Third best match %s with Euclidean distance %f" % (y_train[top_match[2]], euclidean_distance[top_match[2]]))
-    print("Fourth best match %s with Euclidean distance %f" % (y_train[top_match[3]], euclidean_distance[top_match[3]]))
-    print("Fifth best match %s with Euclidean distance %f" % (y_train[top_match[4]], euclidean_distance[top_match[4]]))
-    print("Sixth best match %s with Euclidean distance %f" % (y_train[top_match[5]], euclidean_distance[top_match[5]]))
-    print("Seventh best match %s with Euclidean distance %f" % (y_train[top_match[6]], euclidean_distance[top_match[6]]))
+    #print("Second best match %s with Euclidean distance %f" % (y_train[top_match[1]], euclidean_distance[top_match[1]]))
+    #print("Third best match %s with Euclidean distance %f" % (y_train[top_match[2]], euclidean_distance[top_match[2]]))
+    #print("Fourth best match %s with Euclidean distance %f" % (y_train[top_match[3]], euclidean_distance[top_match[3]]))
+    #print("Fifth best match %s with Euclidean distance %f" % (y_train[top_match[4]], euclidean_distance[top_match[4]]))
+    #print("Sixth best match %s with Euclidean distance %f" % (y_train[top_match[5]], euclidean_distance[top_match[5]]))
+    #print("Seventh best match %s with Euclidean distance %f" % (y_train[top_match[6]], euclidean_distance[top_match[6]]))
 
     print("\n")
 
-print(accuracy/n_samples)
+print("Accuracy: ", (accuracy/n_samples)*100)
 
 '''
     # Visualize
