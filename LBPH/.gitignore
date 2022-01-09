@@ -2,3 +2,7 @@ lfw/
 lfw_home/
 __pycache__/
 images/
+mine/
+output/
+.idea/
+weights.npy
