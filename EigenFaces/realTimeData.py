@@ -38,7 +38,7 @@ for root, dirs, files in os.walk(image_dir):
         img_counter = 1    
 
         for file in files:
-            if file.endswith("png") or file.endswith("jpg"):
+            if file.endswith("png") or file.endswith("jpg") or file.endswith("jpeg"):
 
                 path = os.path.join(root, file)
                 label = os.path.basename(root).replace(" ", "-").lower()
@@ -51,7 +51,7 @@ for root, dirs, files in os.walk(image_dir):
                                        
                 # Read image
                 image = cv2.imread(path)
-
+                print(path)
                 # Convert image to grayscale
                 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)         
                 
@@ -60,6 +60,7 @@ for root, dirs, files in os.walk(image_dir):
 
                 # If there was faces detected in image
                 if(len(faces_detected) != 0):
+                    print("face detected")
                     # Make folder 
                     try:
                         os.makedirs(destination_root)                              
@@ -71,7 +72,7 @@ for root, dirs, files in os.walk(image_dir):
                         # Crop face image
                         face_img = image[y+5:y+h-5, x+5:x+w-5]             
                         # Resize to make uniform images
-                        face_img = cv2.resize(face_img, (47, 62))          
+                        face_img = cv2.resize(face_img, (16, 16))          
                         # Save the image   
                         cv2.imwrite(destination_root + img_name, face_img)                                         
                         
@@ -95,6 +96,14 @@ faces_sample, x_h, x_w = facesVector.shape
 # Get weights for X_train
 weights = eig_vec @ (facesVector.reshape(faces_sample, x_h * x_w) - mean_vec).T
 
+
+X = facesVector.reshape(faces_sample, x_h * x_w)
+
+# Get mean vector
+meanVector = np.mean(X, axis=0)
+
+
+np.save('Real-Time-Output/Vectors/meanVector', meanVector)
 
 np.save('Real-Time-Output/Vectors/weights', weights)				    # Store weights for training data
 

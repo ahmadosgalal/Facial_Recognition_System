@@ -39,7 +39,7 @@ def detect(facename):
                         face_img = img[y+5:y+h-5, x+5:x+w-5]            
                     
                         # Resize to make uniform images
-                        face_img = cv2.resize(face_img,(62, 47))         
+                        face_img = cv2.resize(face_img,(32, 32))         
 
                         # Save the image back
                         cv2.imwrite(img_root, face_img) 

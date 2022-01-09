@@ -8,12 +8,14 @@ import plot
 # Load data projected 
 X_proj = np.load('Data/vectors/dataProjected.npy') 
 
+# Load faces vector
+faces = np.load('Data/vectors/facesVector.npy')                   
 
-
+n_samples, h, w = faces.shape
 
 X_inv_proj = PCAmodel.pca.inverse_transform(X_proj) 
 
-X_proj_img = np.reshape(X_inv_proj, (5085, 62, 47))
+X_proj_img = np.reshape(X_inv_proj, (n_samples, h, w))
 
 
 

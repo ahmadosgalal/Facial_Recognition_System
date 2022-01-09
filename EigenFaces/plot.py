@@ -41,7 +41,7 @@ plot_portraits(faces, face_titles, faces.shape[1], faces.shape[2], 5, 10)
 
 
 # Show mean face
-mean_face = mean_vec.reshape(62, 47)
+mean_face = mean_vec.reshape(32, 32)
 fig, axes = plt.subplots(1, 1 ,sharex=True, sharey=True, figsize=(8, 6))
 axes.imshow(mean_face, cmap="gray")
 plt.show()
