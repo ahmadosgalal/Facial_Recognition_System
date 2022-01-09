@@ -1,0 +1,7 @@
+# Face Recognition using Local Binary Patterns (LBPH)
+
+<h2> The main module files are the two notebooks test.ipynb and and test_webcam.ipynb </h2>
+
+<p> The requirements.txt can help to install dependencies if any problems occurs</p>
+
+<p> The notebooks depends on lfw dataset, and manually built dataset, ask if needed </p>
