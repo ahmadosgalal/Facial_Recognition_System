@@ -19,7 +19,8 @@ class LBPHfromScratch:
         width = img.shape[1]
 
         if width < self.filter_size or height < self.filter_size:
-            raise Exception('Too small input image. Should be at least (2*radius+1) x (2*radius+1)')
+            print("Size not correct!")
+            return
 
         out_width = width - self.filter_size + 1
         out_height = height - self.filter_size + 1

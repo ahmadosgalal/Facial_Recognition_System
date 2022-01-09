@@ -19,7 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Remove Comments">
+    <list default="true" id="d1608ee8-86a0-4770-9914-25b286313db2" name="Default Changelist" comment="Refactoring test module">
+      <change beforePath="$PROJECT_DIR$/../Face Detection/Face Detecion.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Face Detection/Face Detecion.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -275,7 +276,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641664135206</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Testing Module">
+      <created>1641686792965</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1641686792965</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Refactoring test module">
+      <created>1641687707582</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1641687707582</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -304,7 +319,9 @@
     <MESSAGE value="Optimize testing time" />
     <MESSAGE value="Cleaning database" />
     <MESSAGE value="Remove Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove Comments" />
+    <MESSAGE value="Testing Module" />
+    <MESSAGE value="Refactoring test module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring test module" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="87" key="#Inspections" timestamp="1641646509951">
@@ -315,30 +332,30 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="521" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641476625196" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641664150436">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1641688690958">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641664150436" />
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641688690958" />
     <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641664150436">
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1641688690958">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641664150436" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641688690958" />
     <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641664150435">
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1641688690958">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641664150435" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641688690958" />
     <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641664150436">
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1641688690958">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641664150436" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641688690958" />
     <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1641597175773" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641664140301">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1641687715946">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641664140301" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1366.720@0.0.1536.816" timestamp="1641687715946" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1641495197589" />
   </component>
 </project>
