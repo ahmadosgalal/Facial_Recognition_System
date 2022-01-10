@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-import os
 
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -45,9 +44,9 @@ while(True):
         inputFace_weight = eig_vec @ (inputFace - mean_vec).T
         euclidean_distance = np.linalg.norm(weights - inputFace_weight, axis=0)
         best_match = np.argmin(euclidean_distance)
-        #print(facesIdentity[best_match])
+        #print(euclidean_distance)
 
-        if min(euclidean_distance) < 2000:
+        if min(euclidean_distance) < 3000:
             #print(min(euclidean_distance))
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = facesIdentity[best_match]
