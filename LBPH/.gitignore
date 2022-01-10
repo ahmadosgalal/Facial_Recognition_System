@@ -5,4 +5,5 @@ images/
 mine/
 output/
 .idea/
+venv/
 weights.npy

@@ -39,7 +39,7 @@ while(True):
         # Crop face image
         face_img = gray[y+5:y+h-5, x+5:x+w-5]             
         # Resize to make uniform images
-        face_img = cv2.resize(face_img, (16, 16))
+        face_img = cv2.resize(face_img, (32, 32))
 
         inputFace = face_img.reshape(1,-1)
         inputFace_weight = eig_vec @ (inputFace - mean_vec).T
@@ -48,15 +48,16 @@ while(True):
         #print(facesIdentity[best_match])
 
         if min(euclidean_distance) < 2000:
+            #print(min(euclidean_distance))
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = facesIdentity[best_match]
             color = (255, 0, 0)
             stroke = 2
             cv2.putText(frame, name, (x,y), font, 1, color, stroke, cv2.LINE_AA)
-            print("Face recognized: ", name, min(euclidean_distance))
+            #print("Face recognized: ", name)
 
-        else:
-            print("Face not recognized")
+        #else:
+            #print("Face not recognized")
 
         color = (255, 0, 0) #BGR 0-255 
         stroke = 2
@@ -68,7 +69,8 @@ while(True):
         
     # Display the resulting frame
     cv2.imshow('frame',frame)
-    if cv2.waitKey(20) & 0xFF == ord('q'):
+    if cv2.waitKey(20) & 0xFF == 27:        
+
         break
 
 # When everything done, release the capture
